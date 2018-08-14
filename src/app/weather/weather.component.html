@@ -1,0 +1,16 @@
+<div class="page_container">
+  <h1 class="centered">Weather Forecast Page</h1>
+  <div class="control_center centered">
+<input type="text" #weatherLocation (change)="updateUrl()">
+<button (click)="updateUrl()" >Get Forecast</button>
+  </div>
+<hr>
+
+<h2 *ngIf="fiveDayForecast" class="city_name centered"> 5 day forecast for {{fiveDayForecast.city.name}}</h2>
+
+<app-chart-component [results]="results" class="centered"></app-chart-component>
+
+  <div *ngIf="badZipMsg != ''" class="error_message centered">
+  <h3>{{badZipMsg}}.  Your last search is displayed</h3>
+</div>
+</div>
